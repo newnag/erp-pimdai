@@ -1,59 +1,363 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ERP Stock PIMDAI
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://img.shields.io/badge/Laravel-12-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel 12">
+  <img src="https://img.shields.io/badge/PHP-8.4-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP 8.4">
+  <img src="https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+  <img src="https://img.shields.io/badge/Bootstrap-5-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap 5">
 </p>
 
-## About Laravel
+## 📋 เกี่ยวกับโปรเจค
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**ERP Stock PIMDAI** เป็นระบบบริหารจัดการทรัพยากรองค์กร (Enterprise Resource Planning) ที่ออกแบบมาเพื่อรองรับธุรกิจที่มีการซื้อมา-ขายไป การจัดการสต็อกสินค้า และการบริหารจัดการงานขายแบบครบวงจร รวมถึงส่วนงานบัญชีและทรัพยากรบุคคลเบื้องต้น
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+ระบบนี้พัฒนาด้วย **Laravel 12** ซึ่งเป็น PHP Framework ที่ทันสมัยและมีประสิทธิภาพสูง เหมาะสำหรับองค์กรขนาดกลางถึงขนาดใหญ่ที่ต้องการระบบที่มีความยืดหยุ่นและขยายตัวได้ง่าย
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## ✨ ฟีเจอร์หลัก
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### 🛒 โมดูลงานขาย (Sales Module)
+- **ระบบใบเสนอราคา (Quotation)** - จัดทำและติดตามสถานะใบเสนอราคาเพื่อการเจรจาธุรกิจที่มีประสิทธิภาพ
+- **ระบบใบวางบิล/ใบส่งสินค้า (Billing/Delivery)** - ออกเอกสารประกอบการส่งมอบสินค้าและเรียกเก็บเงิน
+- **ระบบใบกำกับภาษี/ใบเสร็จรับเงิน (Invoice/Receipt)** - ออกเอกสารทางการเงินอย่างเป็นทางการ
+- **ระบบจัดการลูกค้า (Customer Management)** - บันทึกประวัติและข้อมูลการติดต่อของลูกค้า
+- **ระบบบริการหลังการขาย (After-Sales)**
+  - Survey Call - ติดตามความพึงพอใจลูกค้าหลังการขาย
+  - Claim & Fix - ระบบแจ้งซ่อมและเคลมสินค้า
+  - Extra Duty - บันทึกงานบริการพิเศษ
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 📦 โมดูลคลังสินค้า (Inventory Module)
+- **ระบบจัดการสินค้า (Product Registry)**
+  - แบ่งประเภทสินค้า: สินค้าสำเร็จรูป (Finished Goods), วัตถุดิบ (Raw Materials), บริการ (Service)
+  - Quick Update สำหรับสินค้าสำเร็จรูป
+  - Stock In/Out ที่เข้มงวดสำหรับวัตถุดิบ
+- **ระบบคลังสินค้าหลายจุด (Multi-location Warehouse)** - รองรับการจัดเก็บหลายสาขา
+- **การจัดการวัตถุดิบ (Raw Material Management)**
+  - Stock In - รับวัตถุดิบเข้าคลังพร้อมบันทึกต้นทุน
+  - Stock Out - เบิกวัตถุดิบออกเพื่อใช้ในการผลิต
+  - Stock Adjustment - ปรับปรุงยอดคงเหลือจริง
+- **รายงานสินค้า** - ระบบรายงานยอดคงเหลือและประวัติการเคลื่อนไหว
 
-## Laravel Sponsors
+### 🏢 โมดูลจัดซื้อ (Purchases Module)
+- **ระบบจัดการซัพพลายเออร์** - จัดเก็บข้อมูลคู่ค้าและประวัติการสั่งซื้อ
+- **ระบบสั่งซื้อสินค้า (Purchase Order)** - สร้างและติดตามใบสั่งซื้อ
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 💰 โมดูลบัญชีและสินทรัพย์ (Accounting & Assets)
+- **การจัดการสินทรัพย์** - ลงทะเบียนทรัพยากรขององค์กร
+- **การคำนวณค่าเสื่อมราคา** - คำนวณมูลค่าที่ลดลงตามเวลา
+- **การจัดการค่าใช้จ่าย** - บันทึกค่าใช้จ่ายทุกประเภท
+- **ระบบภาษีหัก ณ ที่จ่าย** - รองรับการออกเอกสารภาษี
 
-### Premium Partners
+### 📊 โมดูลการตลาด (Marketing Module)
+- **บันทึกข้อมูลการตลาด** - ติดตามแคมเปญจากหลายช่องทาง
+  - Facebook Marketing
+  - Google Ads
+  - Line Marketing
+  - Performance Marketing
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 👥 โมดูลทรัพยากรบุคคล (HR Module)
+- **ระบบลงเวลางาน (Attendance)** - บันทึกเวลาเข้า-ออกงานของพนักงาน
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🛠 เทคโนโลยีที่ใช้
 
-## Code of Conduct
+### Backend
+- **Laravel 12** - PHP Framework
+- **PHP 8.4** - Programming Language
+- **Eloquent ORM** - Database ORM
+- **Laravel Breeze/Sanctum** - Authentication (ยังไม่ได้ติดตั้ง)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Frontend
+- **Laravel Blade** - Template Engine
+- **Bootstrap 5** - CSS Framework
+- **Vite** - Frontend Build Tool
+- **Chart.js** - Data Visualization (ยังไม่ได้ติดตั้ง)
+- **Font Awesome** - Icon Set (ยังไม่ได้ติดตั้ง)
 
-## Security Vulnerabilities
+### Database
+- **MySQL 8.0+** - Relational Database
+- **35 Tables** - Comprehensive Database Schema
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 📊 โครงสร้างฐานข้อมูล
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+ระบบประกอบด้วยตารางหลัก 35 ตาราง แบ่งเป็น:
+
+### Base Tables (5)
+- `users` - ผู้ใช้งานระบบ
+- `warehouses` - คลังสินค้า
+- `asset_categories` - หมวดหมู่สินทรัพย์
+- `product_categories` - หมวดหมู่สินค้า
+- `expense_categories` - หมวดหมู่ค่าใช้จ่าย
+
+### Master Data (4)
+- `customers` - ข้อมูลลูกค้า
+- `suppliers` - ข้อมูลซัพพลายเออร์
+- `products` - ข้อมูลสินค้า
+- `assets` - สินทรัพย์
+
+### Transaction Tables (8)
+- `quotations` + `quotation_items` - ใบเสนอราคา
+- `billings` + `billing_items` - ใบวางบิล/ใบส่งสินค้า
+- `invoices` + `invoice_items` - ใบกำกับภาษี
+- `purchase_orders` + `purchase_order_items` - ใบสั่งซื้อ
+
+### Stock Management (6)
+- `stock_movements` + `stock_items` - การเคลื่อนไหวสต็อก
+- `stock_ins` + `stock_in_items` - รับสินค้าเข้า
+- `stock_outs` + `stock_out_items` - เบิกสินค้าออก
+
+### Others (8)
+- `attendance` - ลงเวลางาน
+- `expenses` - ค่าใช้จ่าย
+- `claims` - การเคลม
+- `extra_duties` - งานพิเศษ
+- `payments` - การชำระเงิน
+- `depreciations` - ค่าเสื่อมราคา
+- `withholding_taxes` - ภาษีหัก ณ ที่จ่าย
+- `survey_calls` - โทรสำรวจ
+
+### Marketing (4)
+- `marketing_fb` - Facebook Marketing
+- `marketing_gg` - Google Marketing
+- `marketing_line` - Line Marketing
+- `marketing_pf` - Performance Marketing
+
+> **หมายเหตุ:** ดู ERD Diagram ได้ที่โฟลเดอร์ `mockup/` หรือตรวจสอบ Schema ที่ `database/migrations/`
+
+---
+
+## 📋 ความต้องการระบบ (Requirements)
+
+- **PHP** >= 8.4
+- **Composer** >= 2.8
+- **Node.js** >= 18.x และ NPM
+- **MySQL** >= 8.0 หรือ **MariaDB** >= 11.0
+- **Web Server** (Apache, Nginx, หรือ PHP Built-in Server)
+- **Git** (สำหรับ Version Control)
+
+---
+
+## 🚀 การติดตั้งระบบ
+
+### 1. Clone โปรเจค
+
+```bash
+git clone https://github.com/newnag/erp-pimdai.git
+cd erp-pimdai
+```
+
+### 2. ติดตั้ง Dependencies
+
+```bash
+# ติดตั้ง PHP Dependencies
+composer install
+
+# ติดตั้ง Node.js Dependencies
+npm install
+```
+
+### 3. ตั้งค่า Environment
+
+```bash
+# Copy ไฟล์ .env
+cp .env.example .env
+
+# Generate Application Key
+php artisan key:generate
+```
+
+### 4. ตั้งค่าฐานข้อมูล
+
+แก้ไขไฟล์ `.env`:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=erp_pimdai
+DB_USERNAME=root
+DB_PASSWORD=your_password
+```
+
+### 5. สร้างฐานข้อมูล
+
+```bash
+# สร้าง Database ใน MySQL
+mysql -u root -p
+CREATE DATABASE erp_pimdai CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+EXIT;
+```
+
+### 6. รัน Migrations และ Seeders
+
+```bash
+# รัน Migrations (สร้างตาราง 35 ตาราง)
+php artisan migrate
+
+# รัน Seeders (ใส่ข้อมูลตัวอย่าง)
+php artisan db:seed
+
+# หรือรันทั้งสองคำสั่งพร้อมกัน
+php artisan migrate:fresh --seed
+```
+
+### 7. Build Frontend Assets
+
+```bash
+# Development
+npm run dev
+
+# Production
+npm run build
+```
+
+### 8. เริ่มใช้งานระบบ
+
+```bash
+# เริ่ม Laravel Development Server
+php artisan serve
+```
+
+เปิดเบราว์เซอร์ที่: `http://localhost:8000`
+
+---
+
+## 👤 ข้อมูลผู้ใช้งานเริ่มต้น
+
+ระบบจะสร้างผู้ใช้งานตัวอย่าง 5 คน พร้อมรหัสผ่านเดียวกัน:
+
+| Username | Role | Email | Password |
+|----------|------|-------|----------|
+| `admin` | Administrator | admin@pimdai.com | `password` |
+| `sales01` | Sales | sales01@pimdai.com | `password` |
+| `inventory01` | Inventory | inventory01@pimdai.com | `password` |
+| `purchase01` | Purchase | purchase01@pimdai.com | `password` |
+| `accountant01` | Accountant | accountant01@pimdai.com | `password` |
+
+**⚠️ คำเตือน:** กรุณาเปลี่ยนรหัสผ่านทันทีเมื่อนำไปใช้งานจริง!
+
+---
+
+## 📁 โครงสร้างโปรเจค
+
+```
+erp-pimdai/
+├── app/
+│   ├── Http/
+│   │   └── Controllers/     # Controllers
+│   ├── Models/              # Eloquent Models
+│   └── ...
+├── database/
+│   ├── migrations/          # Database Migrations (35 files)
+│   ├── seeders/             # Database Seeders (5 files)
+│   └── database.sqlite      # SQLite Database (สำหรับพัฒนา)
+├── mockup/
+│   ├── SRS_ERP_PIMDAI.md   # Software Requirements Specification
+│   └── u745958510_erppimdai.sql  # Database Schema (Original)
+├── public/                  # Public Assets
+├── resources/
+│   ├── views/              # Blade Templates
+│   ├── js/                 # JavaScript Files
+│   └── css/                # CSS Files
+├── routes/
+│   ├── web.php             # Web Routes
+│   └── api.php             # API Routes
+├── .env                    # Environment Configuration
+├── composer.json           # PHP Dependencies
+├── package.json            # Node.js Dependencies
+└── README.md              # คุณอยู่ที่นี่!
+```
+
+---
+
+## 🔧 คำสั่งที่มีประโยชน์
+
+```bash
+# ลบและสร้างฐานข้อมูลใหม่ทั้งหมด
+php artisan migrate:fresh --seed
+
+# รัน Migrations เฉพาะ
+php artisan migrate
+
+# Rollback Migrations
+php artisan migrate:rollback
+
+# ตรวจสอบ Routes
+php artisan route:list
+
+# ล้าง Cache
+php artisan cache:clear
+php artisan config:clear
+php artisan view:clear
+
+# สร้าง Model, Migration, Controller
+php artisan make:model ModelName -mcr
+```
+
+---
+
+## 🎯 บทบาทผู้ใช้งาน (User Roles)
+
+| Role | คำอธิบาย |
+|------|----------|
+| **Admin** | ผู้ดูแลระบบ - จัดการสิทธิ์และข้อมูลทั้งหมด |
+| **Sales** | ฝ่ายขาย - จัดการเอกสารการเงินและข้อมูลลูกค้า |
+| **Inventory** | ฝ่ายคลังสินค้า - จัดการสต็อกและวัตถุดิบ |
+| **Purchase** | ฝ่ายจัดซื้อ - ประสานงานกับซัพพลายเออร์ |
+| **Accountant** | ฝ่ายบัญชี - จัดการค่าใช้จ่าย สินทรัพย์ และภาษี |
+| **Marketing** | ฝ่ายการตลาด - จัดการแคมเปญและติดตามผล |
+
+---
+
+## 📝 To-Do List (งานที่ควรทำต่อ)
+
+- [ ] สร้าง Authentication System (Laravel Breeze)
+- [ ] พัฒนา Controllers และ Views สำหรับแต่ละโมดูล
+- [ ] เพิ่ม Font Awesome Icons
+- [ ] เพิ่ม Chart.js สำหรับ Dashboard
+- [ ] สร้าง API Endpoints (RESTful API)
+- [ ] เพิ่มระบบ Role & Permission
+- [ ] พัฒนาระบบรายงาน (Reports)
+- [ ] เพิ่มระบบ File Upload
+- [ ] Unit Testing & Feature Testing
+- [ ] Documentation (API Docs)
+
+---
+
+## 🤝 การมีส่วนร่วม
+
+หากต้องการมีส่วนร่วมในการพัฒนา:
+
+1. Fork โปรเจคนี้
+2. สร้าง Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit การเปลี่ยนแปลง (`git commit -m 'Add some AmazingFeature'`)
+4. Push ไปยัง Branch (`git push origin feature/AmazingFeature`)
+5. เปิด Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 📞 ติดต่อ
+
+**PIMDAI Co., Ltd.**
+
+- 📧 Email: info@pimdai.com
+- 🌐 Website: [https://pimdai.com](https://pimdai.com)
+- 💼 GitHub: [@newnag](https://github.com/newnag)
+
+---
+
+## 🙏 ขอบคุณ
+
+- [Laravel](https://laravel.com) - The PHP Framework for Web Artisans
+- [Bootstrap](https://getbootstrap.com) - The world's most popular CSS Framework
+
