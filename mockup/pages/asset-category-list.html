@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หมวดหมู่ทรัพย์สิน - ERP PIMDAI</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/quotation-list.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <span>ERP</span>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">ERP Stock</span>
+                    <span class="logo-subtitle">Stock • Sales • Purchase</span>
+                </div>
+            </div>
+            
+            <nav class="nav-menu">
+                <div class="nav-section">
+                    <span class="nav-section-title">DASHBOARD</span>
+                    <a href="../index.html" class="nav-item">
+                        <i class="fas fa-th-large"></i>
+                        <span>ภาพรวม</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">
+                    <span class="nav-section-title">งาน (SALES)</span>
+                    <a href="quotation-list.html" class="nav-item">
+                        <i class="fas fa-file-invoice"></i>
+                        <span>ใบเสนอราคา</span>
+                    </a>
+                    <a href="billing-list.html" class="nav-item">
+                        <i class="fas fa-file-alt"></i>
+                        <span>ใบส่งสินค้า/ใบวางบิล</span>
+                    </a>
+                    <a href="invoice-list.html" class="nav-item">
+                        <i class="fas fa-receipt"></i>
+                        <span>ใบกำกับภาษี/ใบเสร็จรับเงิน</span>
+                    </a>
+                    <a href="customers.html" class="nav-item">
+                        <i class="fas fa-users"></i>
+                        <span>ลูกค้า</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-user-tie"></i>
+                        <span>พนักงาน</span>
+                    </a>
+                    <a href="extra-duty-list.html" class="nav-item">
+                        <i class="fas fa-tasks"></i>
+                        <span>Extra Duty</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">
+                    <span class="nav-section-title">ซื้อ (PURCHASES)</span>
+                    <a href="pending-orders.html" class="nav-item">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>รอสินค้าเข้า</span>
+                    </a>
+                    <a href="suppliers.html" class="nav-item">
+                        <i class="fas fa-building"></i>
+                        <span>ซัพพลายเออร์</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">การเงิน (FINANCE)</span>
+                    <a href="expense-list.html" class="nav-item">
+                        <i class="fas fa-receipt"></i>
+                        <span>ค่าใช้จ่าย</span>
+                    </a>
+                    <a href="payment-list.html" class="nav-item">
+                        <i class="fas fa-money-check-alt"></i>
+                        <span>เตรียมจ่าย</span>
+                    </a>
+                    <a href="withholding-tax-list.html" class="nav-item">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <span>หัก ณ ที่จ่าย</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">ทรัพย์สิน (ASSETS)</span>
+                    <a href="asset-list.html" class="nav-item">
+                        <i class="fas fa-laptop"></i>
+                        <span>จัดการสินทรัพย์</span>
+                    </a>
+                    <a href="depreciation-list.html" class="nav-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>บันทึกค่าเสื่อมราคา</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">
+                    <span class="nav-section-title">สินค้า (INVENTORY)</span>
+                    <a href="products.html" class="nav-item">
+                        <i class="fas fa-boxes"></i>
+                        <span>สินค้า</span>
+                    </a>
+                    <a href="stock-in-list.html" class="nav-item">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>รับวัตถุดิบเข้า</span>
+                    </a>
+                    <a href="stock-out-list.html" class="nav-item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>เบิกวัตถุดิบออก</span>
+                    </a>
+                    <a href="stock-adjustment-list.html" class="nav-item">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>ปรับปรุงสต็อก</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">ตั้งค่า (SETTINGS)</span>
+                    <a href="inventory.html" class="nav-item">
+                        <i class="fas fa-warehouse"></i>
+                        <span>คลังสินค้า</span>
+                    </a>
+                    <a href="asset-category-list.html" class="nav-item active">
+                        <i class="fas fa-tags"></i>
+                        <span>หมวดหมู่ทรัพย์สิน</span>
+                    </a>
+                    <a href="user-list.html" class="nav-item">
+                        <i class="fas fa-user-cog"></i>
+                        <span>จัดการสมาชิก</span>
+                    </a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <span class="user-label">เข้าสู่ระบบเป็น</span>
+                    <span class="user-name">Pzo</span>
+                    <span class="user-email">pongkit@misuexemm.com • admin</span>
+                </div>
+                <button class="btn-logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    ออกจากระบบ
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="page-title">
+                        <h1>หมวดหมู่ทรัพย์สิน</h1>
+                        <nav class="breadcrumb">
+                            <a href="#">หมวดหมู่ทรัพย์สิน</a>
+                            <span class="separator">›</span>
+                            <span>แสดงทั้งหมด</span>
+                        </nav>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <a href="asset-category-create.html" class="btn-create">
+                        <i class="fas fa-plus"></i>
+                        สร้างหมวดหมู่ใหม่
+                    </a>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content list-page">
+                <!-- Filter Bar -->
+                <div class="filter-bar">
+                    <div class="filter-tabs">
+                        <button class="filter-tab active">แสดงทั้งหมด</button>
+                        <button class="filter-tab">ใช้งาน</button>
+                        <button class="filter-tab">ไม่ใช้งาน</button>
+                    </div>
+                    <div class="filter-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="ค้นหาหมวดหมู่..." id="searchInput">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Table -->
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th class="col-code">รหัสหมวดหมู่</th>
+                                <th class="col-name">ชื่อหมวดหมู่</th>
+                                <th class="col-description">คำอธิบาย</th>
+                                <th class="col-rate">อัตราค่าเสื่อม</th>
+                                <th class="col-lifespan">อายุการใช้งาน</th>
+                                <th class="col-count">จำนวนทรัพย์สิน</th>
+                                <th class="col-status">สถานะ</th>
+                                <th class="col-action"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="categoryTableBody">
+                            <!-- Row 1 -->
+                            <tr class="data-row">
+                                <td class="col-code">
+                                    <span class="status-dot invoice-paid"></span>
+                                    <a href="asset-category-create.html" class="doc-link">CAT-001</a>
+                                </td>
+                                <td class="col-name">
+                                    <div class="customer-info">
+                                        <span class="customer-name">คอมพิวเตอร์และอุปกรณ์</span>
+                                    </div>
+                                </td>
+                                <td class="col-description">คอมพิวเตอร์, โน๊ตบุ๊ค, แท็บเล็ต และอุปกรณ์ IT</td>
+                                <td class="col-rate">33.33%</td>
+                                <td class="col-lifespan">3 ปี</td>
+                                <td class="col-count">
+                                    <span class="badge badge-info">24 รายการ</span>
+                                </td>
+                                <td class="col-status">
+                                    <div class="status-select-wrapper">
+                                        <select class="status-select status-paid">
+                                            <option value="active" selected>ใช้งาน</option>
+                                            <option value="inactive">ไม่ใช้งาน</option>
+                                        </select>
+                                        <i class="fas fa-chevron-down select-icon"></i>
+                                    </div>
+                                </td>
+                                <td class="col-action">
+                                    <button class="btn-more" title="ตัวเลือกเพิ่มเติม">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- Row 2 -->
+                            <tr class="data-row">
+                                <td class="col-code">
+                                    <span class="status-dot invoice-paid"></span>
+                                    <a href="asset-category-create.html" class="doc-link">CAT-002</a>
+                                </td>
+                                <td class="col-name">
+                                    <div class="customer-info">
+                                        <span class="customer-name">เครื่องจักรและอุปกรณ์</span>
+                                    </div>
+                                </td>
+                                <td class="col-description">เครื่องจักรในการผลิต, เครื่องมือ, อุปกรณ์โรงงาน</td>
+                                <td class="col-rate">20.00%</td>
+                                <td class="col-lifespan">5 ปี</td>
+                                <td class="col-count">
+                                    <span class="badge badge-info">18 รายการ</span>
+                                </td>
+                                <td class="col-status">
+                                    <div class="status-select-wrapper">
+                                        <select class="status-select status-paid">
+                                            <option value="active" selected>ใช้งาน</option>
+                                            <option value="inactive">ไม่ใช้งาน</option>
+                                        </select>
+                                        <i class="fas fa-chevron-down select-icon"></i>
+                                    </div>
+                                </td>
+                                <td class="col-action">
+                                    <button class="btn-more" title="ตัวเลือกเพิ่มเติม">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- Row 3 -->
+                            <tr class="data-row">
+                                <td class="col-code">
+                                    <span class="status-dot invoice-paid"></span>
+                                    <a href="asset-category-create.html" class="doc-link">CAT-003</a>
+                                </td>
+                                <td class="col-name">
+                                    <div class="customer-info">
+                                        <span class="customer-name">เฟอร์นิเจอร์และตกแต่ง</span>
+                                    </div>
+                                </td>
+                                <td class="col-description">โต๊ะ, เก้าอี้, ตู้, ชั้นวาง</td>
+                                <td class="col-rate">20.00%</td>
+                                <td class="col-lifespan">5 ปี</td>
+                                <td class="col-count">
+                                    <span class="badge badge-info">12 รายการ</span>
+                                </td>
+                                <td class="col-status">
+                                    <div class="status-select-wrapper">
+                                        <select class="status-select status-paid">
+                                            <option value="active" selected>ใช้งาน</option>
+                                            <option value="inactive">ไม่ใช้งาน</option>
+                                        </select>
+                                        <i class="fas fa-chevron-down select-icon"></i>
+                                    </div>
+                                </td>
+                                <td class="col-action">
+                                    <button class="btn-more" title="ตัวเลือกเพิ่มเติม">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- Row 4 -->
+                            <tr class="data-row">
+                                <td class="col-code">
+                                    <span class="status-dot invoice-paid"></span>
+                                    <a href="asset-category-create.html" class="doc-link">CAT-004</a>
+                                </td>
+                                <td class="col-name">
+                                    <div class="customer-info">
+                                        <span class="customer-name">ยานพาหนะ</span>
+                                    </div>
+                                </td>
+                                <td class="col-description">รถยนต์, รถกระบะ, รถบรรทุก</td>
+                                <td class="col-rate">25.00%</td>
+                                <td class="col-lifespan">4 ปี</td>
+                                <td class="col-count">
+                                    <span class="badge badge-info">5 รายการ</span>
+                                </td>
+                                <td class="col-status">
+                                    <div class="status-select-wrapper">
+                                        <select class="status-select status-paid">
+                                            <option value="active" selected>ใช้งาน</option>
+                                            <option value="inactive">ไม่ใช้งาน</option>
+                                        </select>
+                                        <i class="fas fa-chevron-down select-icon"></i>
+                                    </div>
+                                </td>
+                                <td class="col-action">
+                                    <button class="btn-more" title="ตัวเลือกเพิ่มเติม">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- Row 5 -->
+                            <tr class="data-row">
+                                <td class="col-code">
+                                    <span class="status-dot invoice-paid"></span>
+                                    <a href="asset-category-create.html" class="doc-link">CAT-005</a>
+                                </td>
+                                <td class="col-name">
+                                    <div class="customer-info">
+                                        <span class="customer-name">อาคารและสิ่งปลูกสร้าง</span>
+                                    </div>
+                                </td>
+                                <td class="col-description">อาคารสำนักงาน, โรงงาน, คลังสินค้า</td>
+                                <td class="col-rate">5.00%</td>
+                                <td class="col-lifespan">20 ปี</td>
+                                <td class="col-count">
+                                    <span class="badge badge-info">3 รายการ</span>
+                                </td>
+                                <td class="col-status">
+                                    <div class="status-select-wrapper">
+                                        <select class="status-select status-paid">
+                                            <option value="active" selected>ใช้งาน</option>
+                                            <option value="inactive">ไม่ใช้งาน</option>
+                                        </select>
+                                        <i class="fas fa-chevron-down select-icon"></i>
+                                    </div>
+                                </td>
+                                <td class="col-action">
+                                    <button class="btn-more" title="ตัวเลือกเพิ่มเติม">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- Row 6 -->
+                            <tr class="data-row">
+                                <td class="col-code">
+                                    <span class="status-dot invoice-unpaid"></span>
+                                    <a href="asset-category-create.html" class="doc-link">CAT-006</a>
+                                </td>
+                                <td class="col-name">
+                                    <div class="customer-info">
+                                        <span class="customer-name">เครื่องใช้สำนักงาน</span>
+                                    </div>
+                                </td>
+                                <td class="col-description">เครื่องพิมพ์, สแกนเนอร์, เครื่องถ่ายเอกสาร</td>
+                                <td class="col-rate">20.00%</td>
+                                <td class="col-lifespan">5 ปี</td>
+                                <td class="col-count">
+                                    <span class="badge badge-info">8 รายการ</span>
+                                </td>
+                                <td class="col-status">
+                                    <div class="status-select-wrapper">
+                                        <select class="status-select status-unpaid">
+                                            <option value="active">ใช้งาน</option>
+                                            <option value="inactive" selected>ไม่ใช้งาน</option>
+                                        </select>
+                                        <i class="fas fa-chevron-down select-icon"></i>
+                                    </div>
+                                </td>
+                                <td class="col-action">
+                                    <button class="btn-more" title="ตัวเลือกเพิ่มเติม">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination & Footer -->
+                <div class="table-footer">
+                    <div class="pagination">
+                        <button class="page-btn" disabled title="หน้าแรก">
+                            <i class="fas fa-angle-double-left"></i>
+                        </button>
+                        <button class="page-btn" disabled title="ก่อนหน้า">
+                            <i class="fas fa-angle-left"></i>
+                        </button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn" title="ถัดไป">
+                            <i class="fas fa-angle-right"></i>
+                        </button>
+                        <button class="page-btn" title="หน้าสุดท้าย">
+                            <i class="fas fa-angle-double-right"></i>
+                        </button>
+                        
+                        <div class="page-size">
+                            <span>รายการต่อหน้า</span>
+                            <select id="pageSize" class="page-size-select">
+                                <option value="10">10</option>
+                                <option value="20" selected>20</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-show-total">
+                        แสดงสรุปข้อมูล
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>
