@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('username', 100)->unique();
-            $table->string('password');
-            $table->string('full_name');
+            $table->string('name'); // Laravel default name field
+            $table->string('username', 100)->unique()->nullable(); // Optional username for login
             $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable(); // Laravel email verification
+            $table->string('password');
+            $table->rememberToken(); // Laravel "Remember Me" functionality
             $table->string('phone', 20)->nullable();
             $table->enum('role', ['Admin', 'Sales', 'Inventory', 'Purchase', 'Accountant', 'Marketing'])->default('Sales');
             $table->boolean('is_active')->default(true);

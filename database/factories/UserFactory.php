@@ -25,10 +25,14 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'username' => fake()->unique()->userName(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
+            'phone' => fake()->phoneNumber(),
+            'role' => fake()->randomElement(['Admin', 'Sales', 'Inventory', 'Purchase', 'Accountant', 'Marketing']),
+            'is_active' => true,
         ];
     }
 
@@ -39,6 +43,46 @@ class UserFactory extends Factory
     {
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
+        ]);
+    }
+
+    /**
+     * Indicate that the user is inactive.
+     */
+    public function inactive(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'is_active' => false,
+        ]);
+    }
+
+    /**
+     * Indicate that the user is an admin.
+     */
+    public function admin(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'Admin',
+        ]);
+    }
+
+    /**
+     * Indicate that the user is in sales.
+     */
+    public function sales(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'Sales',
+        ]);
+    }
+
+    /**
+     * Indicate that the user manages inventory.
+     */
+    public function inventory(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'Inventory',
         ]);
     }
 }

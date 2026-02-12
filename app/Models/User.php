@@ -4,13 +4,14 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -19,8 +20,12 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
+        'phone',
+        'role',
+        'is_active',
     ];
 
     /**
@@ -43,6 +48,43 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_active' => 'boolean',
         ];
+    }
+
+    /**
+     * Get the column name for the "username" or "email" to be used for authentication.
+     * This allows login with either username or email.
+     *
+     * @param string $identity
+     * @return string
+     */
+    public static function findForAuth($identity)
+    {
+        return static::where('email', $identity)
+            ->orWhere('username', $identity)
+            ->where('is_active', true)
+            ->first();
+    }
+
+    /**
+     * Check if user has a specific role
+     *
+     * @param string $role
+     * @return bool
+     */
+    public function hasRole(string $role): bool
+    {
+        return $this->role === $role;
+    }
+
+    /**
+     * Check if user is active
+     *
+     * @return bool
+     */
+    public function isActive(): bool
+    {
+        return $this->is_active === true;
     }
 }
