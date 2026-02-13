@@ -38,7 +38,7 @@
                 <i class="fas fa-receipt me-2"></i>
                 <span>ใบกำกับภาษี/ใบเสร็จรับเงิน</span>
             </a>
-            <a href="#" class="nav-item d-flex align-items-center text-decoration-none text-dark p-2 rounded mb-1">
+            <a href="{{ route('customers.index') }}" class="nav-item d-flex align-items-center text-decoration-none p-2 rounded mb-1 {{ request()->routeIs('customers.*') ? 'active bg-primary text-white' : 'text-dark' }}">
                 <i class="fas fa-users me-2"></i>
                 <span>ลูกค้า</span>
             </a>

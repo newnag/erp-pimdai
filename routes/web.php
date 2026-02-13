@@ -1,10 +1,15 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Customers
+Route::resource('customers', CustomerController::class)->only(['index', 'create', 'store', 'show', 'update', 'destroy']);
+Route::get('customers/{customer}/edit', [CustomerController::class, 'edit'])->name('customers.edit');
 
 // Dashboard route
 Route::get('/dashboard', function () {
